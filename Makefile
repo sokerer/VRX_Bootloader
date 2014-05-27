@@ -35,7 +35,7 @@ export COMMON_SRCS	 = bl.c
 #
 # Bootloaders to build
 #
-TARGETS			 = vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrherov10_bl
+TARGETS			 = vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrherov10_bl
 
 all:	$(TARGETS)
 
@@ -61,6 +61,9 @@ vrbrainv50_bl: $(MAKEFILE_LIST)
 
 vrbrainv51_bl: $(MAKEFILE_LIST)
 	make -f Makefile.f4 TARGET=brainv51 INTERFACE=USB BOARD=BRAINV51 USBDEVICESTRING="\\\"VR BL BRAIN v5.1\\\"" USBPRODUCTID="0x1151"
+
+vrubrainv51_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=ubrainv51 INTERFACE=USB BOARD=UBRAINV51 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.1\\\"" USBPRODUCTID="0x1351"
 
 vrherov10_bl: $(MAKEFILE_LIST)
 	make -f Makefile.f4 TARGET=herov10 INTERFACE=USB BOARD=HEROV10 USBDEVICESTRING="\\\"VR BL HERO v1.0\\\"" USBPRODUCTID="0x1210"
