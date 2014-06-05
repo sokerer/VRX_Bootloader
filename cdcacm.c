@@ -30,7 +30,7 @@
 static const char *usb_strings[] = {
 	"",
 #if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
-	"VirtualRobotix",
+	"Laser Navigation",
 #else
 	"3D Robotics",
 #endif
