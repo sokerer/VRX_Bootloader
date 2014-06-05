@@ -1,5 +1,5 @@
 #
-# Common Makefile for the VRBRAIN bootloaders
+# Common Makefile for the PX4 and VRX bootloaders
 #
 
 #
@@ -35,12 +35,15 @@ export COMMON_SRCS	 = bl.c
 #
 # Bootloaders to build
 #
-TARGETS			 = vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrherov10_bl
+TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl \
+        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrherov10_bl
+
+
 
 all:	$(TARGETS)
 
 clean:
-	rm -f *.elf *.bin
+	rm -f *.elf *.bin *.hex
 
 #
 # Specific bootloader targets.
@@ -50,20 +53,44 @@ clean:
 # Specify the board type.
 #
 
+#PX4 boards
+px4fmu_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=fmu INTERFACE=USB BOARD=FMU USBDEVICESTRING="\\\"PX4 BL FMU v1.x\\\"" USBPRODUCTID="0x0010"
+
+px4fmuv2_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=fmuv2 INTERFACE=USB BOARD=FMUV2 USBDEVICESTRING="\\\"PX4 BL FMU v2.x\\\"" USBPRODUCTID="0x0011"
+
+stm32f4discovery_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=discovery INTERFACE=USB BOARD=DISCOVERY USBDEVICESTRING="\\\"PX4 BL DISCOVERY\\\"" USBPRODUCTID="0x0001"
+
+px4flow_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=flow INTERFACE=USB BOARD=FLOW USBDEVICESTRING="\\\"PX4 FLOW v1.3\\\"" USBPRODUCTID="0x0015"
+
+aerocore_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f4 TARGET=aerocore INTERFACE=USB BOARD=AEROCORE USBDEVICESTRING="\\\"Gumstix BL AEROCORE\\\"" USBPRODUCTID="0x1001"
+
+# Default bootloader delay is *very* short, just long enough to catch
+# the board for recovery but not so long as to make restarting after a 
+# brownout problematic.
+#
+px4io_bl: $(MAKEFILE_LIST)
+	make -f Makefile.f1 TARGET=io INTERFACE=USART BOARD=IO PX4_BOOTLOADER_DELAY=200
+
+#VRX boards
 vrbrainv40_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=brainv40 INTERFACE=USB BOARD=BRAINV40 USBDEVICESTRING="\\\"VR BL BRAIN v4.0\\\"" USBPRODUCTID="0x1140"
+	make -f Makefile_VRX.f4 TARGET=brainv40 INTERFACE=USB BOARD=BRAINV40 USBDEVICESTRING="\\\"VR BL BRAIN v4.0\\\"" USBPRODUCTID="0x1140"
 
 vrbrainv45_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=brainv45 INTERFACE=USB BOARD=BRAINV45 USBDEVICESTRING="\\\"VR BL BRAIN v4.5\\\"" USBPRODUCTID="0x1145"
+	make -f Makefile_VRX.f4 TARGET=brainv45 INTERFACE=USB BOARD=BRAINV45 USBDEVICESTRING="\\\"VR BL BRAIN v4.5\\\"" USBPRODUCTID="0x1145"
 
 vrbrainv50_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=brainv50 INTERFACE=USB BOARD=BRAINV50 USBDEVICESTRING="\\\"VR BL BRAIN v5.0\\\"" USBPRODUCTID="0x1150"
+	make -f Makefile_VRX.f4 TARGET=brainv50 INTERFACE=USB BOARD=BRAINV50 USBDEVICESTRING="\\\"VR BL BRAIN v5.0\\\"" USBPRODUCTID="0x1150"
 
 vrbrainv51_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=brainv51 INTERFACE=USB BOARD=BRAINV51 USBDEVICESTRING="\\\"VR BL BRAIN v5.1\\\"" USBPRODUCTID="0x1151"
+	make -f Makefile_VRX.f4 TARGET=brainv51 INTERFACE=USB BOARD=BRAINV51 USBDEVICESTRING="\\\"VR BL BRAIN v5.1\\\"" USBPRODUCTID="0x1151"
 
 vrubrainv51_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=ubrainv51 INTERFACE=USB BOARD=UBRAINV51 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.1\\\"" USBPRODUCTID="0x1351"
+	make -f Makefile_VRX.f4 TARGET=ubrainv51 INTERFACE=USB BOARD=UBRAINV51 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.1\\\"" USBPRODUCTID="0x1351"
 
 vrherov10_bl: $(MAKEFILE_LIST)
-	make -f Makefile.f4 TARGET=herov10 INTERFACE=USB BOARD=HEROV10 USBDEVICESTRING="\\\"VR BL HERO v1.0\\\"" USBPRODUCTID="0x1210"
+	make -f Makefile_VRX.f4 TARGET=herov10 INTERFACE=USB BOARD=HEROV10 USBDEVICESTRING="\\\"VR BL HERO v1.0\\\"" USBPRODUCTID="0x1210"

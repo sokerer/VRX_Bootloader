@@ -52,10 +52,10 @@
 
 // protocol bytes
 #define PROTO_INSYNC		0x12    // 'in sync' byte sent before status
-#define PROTO_EOC			0x20    // end of command
+#define PROTO_EOC		0x20    // end of command
 
 // Reply bytes
-#define PROTO_OK			0x10    // INSYNC/OK      - 'ok' response
+#define PROTO_OK		0x10    // INSYNC/OK      - 'ok' response
 #define PROTO_FAILED		0x11    // INSYNC/FAILED  - 'fail' response
 #define PROTO_INVALID		0x13	// INSYNC/INVALID - 'invalid' response for bad commands
 
@@ -67,14 +67,14 @@
 #define PROTO_GET_CRC		0x29	// compute & return a CRC
 #define PROTO_GET_OTP		0x2a	// read a byte from OTP at the given address
 #define PROTO_GET_SN        0x2b    // read a word from UDID area ( Serial)  at the given address
-#define PROTO_BOOT			0x30    // boot the application
-#define PROTO_DEBUG			0x31    // emit debug information - format not defined
+#define PROTO_BOOT		0x30    // boot the application
+#define PROTO_DEBUG		0x31    // emit debug information - format not defined
 
-#define PROTO_PROG_MULTI_MAX     64	// maximum PROG_MULTI size
+#define PROTO_PROG_MULTI_MAX    64	// maximum PROG_MULTI size
 #define PROTO_READ_MULTI_MAX    255	// size of the size field
 
 /* argument values for PROTO_GET_DEVICE */
-#define PROTO_DEVICE_BL_REV		1	// bootloader revision
+#define PROTO_DEVICE_BL_REV	1	// bootloader revision
 #define PROTO_DEVICE_BOARD_ID	2	// board ID
 #define PROTO_DEVICE_BOARD_REV	3	// board revision
 #define PROTO_DEVICE_FW_SIZE	4	// size of flashable area
@@ -373,7 +373,7 @@ bootloader(unsigned timeout)
 
 			// get device info
 			//
-			// command:			GET_DEVICE/<arg:1>/EOC
+			// command:		GET_DEVICE/<arg:1>/EOC
 			// BL_REV reply:	<revision:4>/INSYNC/EOC
 			// BOARD_ID reply:	<board type:4>/INSYNC/EOC
 			// BOARD_REV reply:	<board rev:4>/INSYNC/EOC

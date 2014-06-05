@@ -44,13 +44,111 @@ static struct {
 	{ (0x1a << 3), 128 * 1024},
 	{ (0x1b << 3), 128 * 1024},
 };
-
 #define BOOTLOADER_RESERVATION_SIZE	(16 * 1024)
 
-#define OTP_BASE		0x1fff7800
-#define OTP_SIZE		512
+#define OTP_BASE			0x1fff7800
+#define OTP_SIZE			512
 #define UDID_START		0x1FFF7A10
 
+
+#ifdef BOARD_FMU
+# define BOARD_TYPE			5
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE		(1024 * 1024)
+
+# define OSC_FREQ			24
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO15
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS		GPIOB
+# define BOARD_CLOCK_LEDS		RCC_AHB1ENR_IOPBEN
+# define BOARD_LED_ON			gpio_clear
+# define BOARD_LED_OFF			gpio_set
+
+# define BOARD_FORCE_BL_PIN		GPIO10
+# define BOARD_FORCE_BL_PORT		GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT	RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL		GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE		0
+#endif
+
+#ifdef BOARD_FLOW
+# define BOARD_TYPE			6
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE		(1024 * 1024)
+
+# define OSC_FREQ			24
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO3
+# define BOARD_PIN_LED_BOOTLOADER	GPIO2
+# define BOARD_PORT_LEDS		GPIOE
+# define BOARD_CLOCK_LEDS		RCC_AHB1ENR_IOPEEN
+# define BOARD_LED_ON			gpio_clear
+# define BOARD_LED_OFF			gpio_set
+#endif
+
+#ifdef BOARD_DISCOVERY
+# define BOARD_TYPE			99
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE		(1024 * 1024)
+
+# define OSC_FREQ			8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO12
+# define BOARD_PIN_LED_BOOTLOADER	GPIO13
+# define BOARD_PORT_LEDS		GPIOD
+# define BOARD_CLOCK_LEDS		RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON			gpio_set
+# define BOARD_LED_OFF			gpio_clear
+#endif
+
+#ifdef BOARD_FMUV2
+# define BOARD_TYPE			9
+# define _FLASH_KBYTES			(*(uint16_t *)0x1fff7a22)
+# define BOARD_FLASH_SECTORS		((_FLASH_KBYTES == 0x400) ? 11 : 23)
+# define BOARD_FLASH_SIZE		(_FLASH_KBYTES * 1024)
+
+# define OSC_FREQ			24
+
+# define BOARD_PIN_LED_ACTIVITY		0		// no activity LED
+# define BOARD_PIN_LED_BOOTLOADER	GPIO12
+# define BOARD_PORT_LEDS		GPIOE
+# define BOARD_CLOCK_LEDS		RCC_AHB1ENR_IOPEEN
+# define BOARD_LED_ON			gpio_clear
+# define BOARD_LED_OFF			gpio_set
+
+# define BOARD_FORCE_BL_PIN_OUT		GPIO14
+# define BOARD_FORCE_BL_PIN_IN		GPIO11
+# define BOARD_FORCE_BL_PORT		GPIOE
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT	RCC_AHB1ENR_IOPEEN
+# define BOARD_FORCE_BL_PULL		GPIO_PUPD_PULLUP
+
+//# define BOARD_BOOT_FAIL_DETECT		/* V2 boards should support boot failure detection */
+#endif
+
+#ifdef BOARD_AEROCORE
+# define BOARD_TYPE			98
+# define BOARD_FLASH_SECTORS		23
+# define BOARD_FLASH_SIZE		(2048 * 1024)
+
+# define OSC_FREQ			24
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO10	// Yellow
+# define BOARD_PIN_LED_BOOTLOADER	GPIO9	// Blue
+# define BOARD_PORT_LEDS		GPIOE
+# define BOARD_CLOCK_LEDS		RCC_AHB1ENR_IOPEEN
+# define BOARD_LED_ON			gpio_clear
+# define BOARD_LED_OFF			gpio_set
+
+# define BOARD_FORCE_BL_PIN_OUT		GPIO0	// J11 header, pin 1
+# define BOARD_FORCE_BL_PIN_IN		GPIO1	// J11 header, pin 3
+# define BOARD_FORCE_BL_PORT		GPIOB
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT	RCC_AHB1ENR_IOPBEN
+# define BOARD_FORCE_BL_PULL		GPIO_PUPD_PULLUP
+#endif
 
 #ifdef BOARD_BRAINV40
 # define BOARD_TYPE					1140
@@ -196,9 +294,7 @@ static struct {
 # define BOARD_FORCE_BL_STATE			0
 #endif
 
-
-
-#define APP_SIZE_MAX				(BOARD_FLASH_SIZE - BOOTLOADER_RESERVATION_SIZE)
+#define APP_SIZE_MAX			(BOARD_FLASH_SIZE - BOOTLOADER_RESERVATION_SIZE)
 
 /* context passed to cinit */
 #define BOARD_INTERFACE_CONFIG		NULL
@@ -206,7 +302,11 @@ static struct {
 /* board definition */
 struct boardinfo board_info = {
 	.board_type	= BOARD_TYPE,
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
 	.board_rev	= BOARD_REVISION,
+#else
+	.board_rev	= 0,
+#endif
 	.fw_size	= 0,
 
 	.systick_mhz	= 168,

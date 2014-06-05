@@ -29,7 +29,11 @@
 
 static const char *usb_strings[] = {
 	"",
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
+	"VirtualRobotix",
+#else
 	"3D Robotics",
+#endif
 	USBDEVICESTRING,
 	"0",
 };
@@ -42,7 +46,11 @@ static const struct usb_device_descriptor dev = {
 	.bDeviceSubClass = 0,
 	.bDeviceProtocol = 0,
 	.bMaxPacketSize0 = 64,
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#else
+	.idVendor = 0x26AC,					/**< Vendor ID (VID) */
+#endif
 	.idProduct = USBPRODUCTID,			/**< Product ID (PID) */
 	.bcdDevice = 0x0101,				/**< Product version. Set to 1.01 (0x0101) to agree with NuttX */
 	.iManufacturer = 1,					/**< Use string with index 1 for the manufacturer string ("3D Robotics") */
