@@ -193,10 +193,10 @@ static struct {
 # define BOARD_PIN_LED_BOOTLOADER	GPIO14
 # define BOARD_PORT_LEDS			GPIOC
 # define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPCEN
-# define BOARD_LED_ON				gpio_clear
-# define BOARD_LED_OFF				gpio_set
+# define BOARD_LED_ON				gpio_set
+# define BOARD_LED_OFF				gpio_clear
 
-# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PIN				GPIO9
 # define BOARD_FORCE_BL_PORT			GPIOA
 # define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
 # define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
@@ -638,7 +638,7 @@ main(void)
 	/* Enable the FPU before we hit any FP instructions */
 	SCB_CPACR |= ((3UL << 10*2) | (3UL << 11*2)); /* set CP10 Full Access and set CP11 Full Access */
 
-#ifdef BOARD_BRAINV45
+#if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
 	if(!board_test_force_pin()) {
 		jump_to_app();
 	}
@@ -677,7 +677,7 @@ main(void)
 	 * If the force-bootloader pins are tied, we will stay here until they are removed and
 	 * we then time out.
 	 */
-#ifdef BOARD_BRAINV45
+#if defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
 	if (gpio_get(BOARD_PRESENCE_PORT, BOARD_PRESENCE_PIN) != 0  && board_test_force_pin()) {
 
 		/* don't try booting before we set up the bootloader */
