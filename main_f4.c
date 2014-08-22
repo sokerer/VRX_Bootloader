@@ -639,7 +639,7 @@ main(void)
 	SCB_CPACR |= ((3UL << 10*2) | (3UL << 11*2)); /* set CP10 Full Access and set CP11 Full Access */
 
 #if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
-	if(!board_test_force_pin()) {
+	if(!board_test_force_pin() && !(board_get_rtc_signature() == BOOT_RTC_SIGNATURE)) {
 		jump_to_app();
 	}
 #endif
@@ -662,6 +662,11 @@ main(void)
 		 */
 		timeout = 0;
 
+#if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
+		flash_unlock();
+		flash_func_erase_sector(0);
+		flash_lock();
+#endif
 		/* 
 		 * Clear the signature so that if someone resets us while we're
 		 * in the bootloader we'll try to boot next time.
