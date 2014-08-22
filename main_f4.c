@@ -663,6 +663,9 @@ main(void)
 		timeout = 0;
 
 #if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
+		// force an erase of the first sector because version 4.x
+		// of the board is not able to reset USB after first boot.
+		// This will force the bootloader to stay until a program has been flashed.
 		flash_unlock();
 		flash_func_erase_sector(0);
 		flash_lock();
