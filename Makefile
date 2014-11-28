@@ -36,7 +36,7 @@ export COMMON_SRCS	 = bl.c
 # Bootloaders to build
 #
 TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl \
-        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrherov10_bl
+        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrubrainv52_bl vrherov10_bl vrugimbalv11_bl vrgimbalv20_bl
 
 
 
@@ -92,5 +92,15 @@ vrbrainv51_bl: $(MAKEFILE_LIST)
 vrubrainv51_bl: $(MAKEFILE_LIST)
 	make -f Makefile_VRX.f4 TARGET=ubrainv51 INTERFACE=USB BOARD=UBRAINV51 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.1\\\"" USBPRODUCTID="0x1351"
 
+vrubrainv52_bl: $(MAKEFILE_LIST)
+	make -f Makefile_VRX.f4 TARGET=ubrainv52 INTERFACE=USB BOARD=UBRAINV52 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.2\\\"" USBPRODUCTID="0x1352"
+
 vrherov10_bl: $(MAKEFILE_LIST)
 	make -f Makefile_VRX.f4 TARGET=herov10 INTERFACE=USB BOARD=HEROV10 USBDEVICESTRING="\\\"VR BL HERO v1.0\\\"" USBPRODUCTID="0x1210"
+
+vrugimbalv11_bl: $(MAKEFILE_LIST)
+	make -f Makefile_VRX.f4 TARGET=ugimbalv11 INTERFACE=USB BOARD=UGIMBALV11 USBDEVICESTRING="\\\"VR BL MICRO GIMBAL v1.1\\\"" USBPRODUCTID="0x1411"
+
+vrgimbalv20_bl: $(MAKEFILE_LIST)
+	make -f Makefile_VRX.f4 TARGET=gimbalv20 INTERFACE=USB BOARD=GIMBALV20 USBDEVICESTRING="\\\"VR BL GIMBAL v2.0\\\"" USBPRODUCTID="0x1520"
+	

@@ -29,7 +29,7 @@
 
 static const char *usb_strings[] = {
 	"",
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
 	"Laser Navigation",
 #else
 	"3D Robotics",
@@ -46,7 +46,7 @@ static const struct usb_device_descriptor dev = {
 	.bDeviceSubClass = 0,
 	.bDeviceProtocol = 0,
 	.bMaxPacketSize0 = 64,
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_HEROV10)
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
 #else
 	.idVendor = 0x26AC,					/**< Vendor ID (VID) */
@@ -236,7 +236,7 @@ void cdc_init(void)
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
 	gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
 #else
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_HEROV10)
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_HEROV10) || defined(BOARD_GIMBALV20)
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
 	gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
 #else
