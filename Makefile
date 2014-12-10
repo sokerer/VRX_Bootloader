@@ -36,7 +36,10 @@ export COMMON_SRCS	 = bl.c
 # Bootloaders to build
 #
 TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl \
-        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrubrainv51_bl vrubrainv52_bl vrherov10_bl vrugimbalv11_bl vrgimbalv20_bl
+        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrbrainv52_bl \
+        		   vrubrainv51_bl vrubrainv52_bl \
+        		   vrherov10_bl \
+        		   vrugimbalv11_bl vrgimbalv20_bl
 
 
 
@@ -88,6 +91,9 @@ vrbrainv50_bl: $(MAKEFILE_LIST)
 
 vrbrainv51_bl: $(MAKEFILE_LIST)
 	make -f Makefile_VRX.f4 TARGET=brainv51 INTERFACE=USB BOARD=BRAINV51 USBDEVICESTRING="\\\"VR BL BRAIN v5.1\\\"" USBPRODUCTID="0x1151"
+
+vrbrainv52_bl: $(MAKEFILE_LIST)
+	make -f Makefile_VRX.f4 TARGET=brainv52 INTERFACE=USB BOARD=BRAINV52 USBDEVICESTRING="\\\"VR BL BRAIN v5.2\\\"" USBPRODUCTID="0x1152"
 
 vrubrainv51_bl: $(MAKEFILE_LIST)
 	make -f Makefile_VRX.f4 TARGET=ubrainv51 INTERFACE=USB BOARD=UBRAINV51 USBDEVICESTRING="\\\"VR BL MICRO BRAIN v5.1\\\"" USBPRODUCTID="0x1351"

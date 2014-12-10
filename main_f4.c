@@ -300,6 +300,36 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
+#ifdef BOARD_BRAINV52
+# define BOARD_TYPE					1152
+# define BOARD_REVISION				0
+# define BOARD_VERSION				5.2
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
 #ifdef BOARD_UBRAINV51
 # define BOARD_TYPE					1351
 # define BOARD_REVISION				0
@@ -458,7 +488,7 @@ static struct {
 /* board definition */
 struct boardinfo board_info = {
 	.board_type	= BOARD_TYPE,
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
+#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_BRAINV52) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
 	.board_rev	= BOARD_REVISION,
 #else
 	.board_rev	= 0,
