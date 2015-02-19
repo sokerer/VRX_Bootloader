@@ -5,10 +5,8 @@
 #
 # Paths to common dependencies
 #
-export LIBOPENCM3	?= $(wildcard ../libopencm3)
-ifeq ($(LIBOPENCM3),)
-$(error Cannot locate libopencm3 - set LIBOPENCM3 to the root of a built version and try again)
-endif
+export BL_BASE		?= $(wildcard .)
+export LIBOPENCM3	?= $(wildcard libopencm3)
 
 #
 # Tools
