@@ -8,7 +8,7 @@ Class=Ports
 ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
 Provider=%MFGNAME%
 LayoutFile=layout.inf
-CatalogFile=vrubrain.cat
+CatalogFile=vrbrain.cat
 DriverVer=01/01/2015,2.0.0.9
 
 [Manufacturer]
@@ -85,10 +85,10 @@ ServiceBinary=%12%\%DRIVERFILENAME%.sys
 [SourceDisksFiles]
 [SourceDisksNames]
 [DeviceList]
-%DESCRIPTION%=DriverInstall, USB\VID_27AC&PID_1351, USB\VID_27AC&PID_1352
+%DESCRIPTION%=DriverInstall, USB\VID_27AC&PID_1910
 
 [DeviceList.NTamd64]
-%DESCRIPTION%=DriverInstall, USB\VID_27AC&PID_1351, USB\VID_27AC&PID_1352
+%DESCRIPTION%=DriverInstall, USB\VID_27AC&PID_1910
 
 
 ;------------------------------------------------------------------------------
@@ -100,6 +100,6 @@ ServiceBinary=%12%\%DRIVERFILENAME%.sys
 MFGFILENAME="CDC_vista"
 DRIVERFILENAME ="usbser"
 MFGNAME="Laser Navigation"
-INSTDISK="Laser Navigation VR MICRO VRBRAIN Installer"
-DESCRIPTION="VR Micro Brain"
+INSTDISK="Laser Navigation VR BRAIN CORE Installer"
+DESCRIPTION="VR Brain Core"
 SERVICE="USB RS-232 Emulation Driver"
