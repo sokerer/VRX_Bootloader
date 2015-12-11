@@ -29,7 +29,45 @@
 
 static const char *usb_strings[] = {
 	"",
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_BRAINV52) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
+#if defined(BOARD_VRBRAINV40)
+	"Laser Navigation",
+#elif defined(BOARD_VRBRAINV45)
+	"Laser Navigation",
+#elif defined(BOARD_VRBRAINV50)
+	"Laser Navigation",
+#elif defined(BOARD_VRBRAINV51)
+	"Laser Navigation",
+#elif defined(BOARD_VRBRAINV52)
+	"Laser Navigation",
+#elif defined(BOARD_VRUBRAINV51)
+	"Laser Navigation",
+#elif defined(BOARD_VRUBRAINV52)
+	"Laser Navigation",
+#elif defined(BOARD_VRHEROV10)
+	"Laser Navigation",
+#elif defined(BOARD_VRUGIMBALV11)
+	"Laser Navigation",
+#elif defined(BOARD_VRGIMBALV20)
+	"Laser Navigation",
+#elif defined(BOARD_VRFLIGHTSTOPV10)
+	"Laser Navigation",
+#elif defined(BOARD_VRSPARKV11)
+	"Laser Navigation",
+#elif defined(BOARD_VRSPARKV21)
+	"Laser Navigation",
+#elif defined(BOARD_VRTHERMALV10)
+	"Laser Navigation",
+#elif defined(BOARD_VRTHERMALV20)
+	"Laser Navigation",
+#elif defined(BOARD_VRTHERMALV30)
+	"Laser Navigation",
+#elif defined(BOARD_VRTHERMALV31)
+	"Laser Navigation",
+#elif defined(BOARD_VRTHERMALV32)
+	"Laser Navigation",
+#elif defined(BOARD_VRCOREV10)
+	"Laser Navigation",
+#elif defined(BOARD_VRMAPPERV10)
 	"Laser Navigation",
 #else
 	"3D Robotics",
@@ -46,7 +84,45 @@ static const struct usb_device_descriptor dev = {
 	.bDeviceSubClass = 0,
 	.bDeviceProtocol = 0,
 	.bMaxPacketSize0 = 64,
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_BRAINV52) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
+#if defined(BOARD_VRBRAINV40)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRBRAINV45)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRBRAINV50)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRBRAINV51)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRBRAINV52)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRUBRAINV51)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRUBRAINV52)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRHEROV10)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRUGIMBALV11)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRGIMBALV20)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRFLIGHTSTOPV10)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRSPARKV11)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRSPARKV21)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRTHERMALV10)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRTHERMALV20)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRTHERMALV30)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRTHERMALV31)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRTHERMALV32)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRCOREV10)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRMAPPERV10)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
 #else
 	.idVendor = 0x26AC,					/**< Vendor ID (VID) */
@@ -236,7 +312,7 @@ void cdc_init(void)
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
 	gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
 #else
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_HEROV10) || defined(BOARD_GIMBALV20)
+#if defined(BOARD_VRBRAINV40) || defined(BOARD_VRBRAINV45) || defined(BOARD_VRHEROV10) || defined(BOARD_VRGIMBALV20)
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
 	gpio_set_af(GPIOA, GPIO_AF10, GPIO11 | GPIO12);
 #else

@@ -32,8 +32,10 @@ FLAGS		+= -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 \
 		   -L$(LIBOPENCM3)/lib/stm32/f4/ \
 		   -lopencm3_stm32f4 \
 
-ELF		 = $(PRODUCT).elf
-BINARY		 = $(PRODUCT).bin
+BUILDPATH = bootloader/
+
+ELF		 = $(BUILDPATH)$(PRODUCT).elf
+BINARY		 = $(BUILDPATH)$(PRODUCT).bin
 
 all:		$(ELF) $(BINARY)
 

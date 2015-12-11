@@ -180,7 +180,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_BRAINV40
+#ifdef BOARD_VRBRAINV40
 # define BOARD_TYPE					1140
 # define BOARD_REVISION				0
 # define BOARD_VERSION				4.0
@@ -210,7 +210,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_BRAINV45
+#ifdef BOARD_VRBRAINV45
 # define BOARD_TYPE					1145
 # define BOARD_REVISION				0
 # define BOARD_VERSION				4.5
@@ -240,7 +240,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_BRAINV50
+#ifdef BOARD_VRBRAINV50
 # define BOARD_TYPE					1150
 # define BOARD_REVISION				0
 # define BOARD_VERSION				5.0
@@ -270,7 +270,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_BRAINV51
+#ifdef BOARD_VRBRAINV51
 # define BOARD_TYPE					1151
 # define BOARD_REVISION				0
 # define BOARD_VERSION				5.1
@@ -300,7 +300,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_BRAINV52
+#ifdef BOARD_VRBRAINV52
 # define BOARD_TYPE					1152
 # define BOARD_REVISION				0
 # define BOARD_VERSION				5.2
@@ -330,7 +330,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_UBRAINV51
+#ifdef BOARD_VRUBRAINV51
 # define BOARD_TYPE					1351
 # define BOARD_REVISION				0
 # define BOARD_VERSION				5.1
@@ -360,7 +360,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_UBRAINV52
+#ifdef BOARD_VRUBRAINV52
 # define BOARD_TYPE					1352
 # define BOARD_REVISION				0
 # define BOARD_VERSION				5.2
@@ -390,7 +390,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_HEROV10
+#ifdef BOARD_VRHEROV10
 # define BOARD_TYPE					1210
 # define BOARD_REVISION				0
 # define BOARD_VERSION				1.0
@@ -420,7 +420,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_UGIMBALV11
+#ifdef BOARD_VRUGIMBALV11
 # define BOARD_TYPE					1411
 # define BOARD_REVISION				0
 # define BOARD_VERSION				1.1
@@ -450,7 +450,7 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
-#ifdef BOARD_GIMBALV20
+#ifdef BOARD_VRGIMBALV20
 # define BOARD_TYPE					1520
 # define BOARD_REVISION				0
 # define BOARD_VERSION				2.0
@@ -480,6 +480,306 @@ static struct {
 # define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
 #endif
 
+#ifdef BOARD_VRFLIGHTSTOPV10
+# define BOARD_TYPE					1610
+# define BOARD_REVISION				0
+# define BOARD_VERSION				1.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRSPARKV11
+# define BOARD_TYPE					1711
+# define BOARD_REVISION				0
+# define BOARD_VERSION				1.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRSPARKV21
+# define BOARD_TYPE					1721
+# define BOARD_REVISION				0
+# define BOARD_VERSION				2.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRTHERMALV10
+# define BOARD_TYPE					1810
+# define BOARD_REVISION				0
+# define BOARD_VERSION				1.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRTHERMALV20
+# define BOARD_TYPE					1820
+# define BOARD_REVISION				0
+# define BOARD_VERSION				2.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRTHERMALV30
+# define BOARD_TYPE					1830
+# define BOARD_REVISION				0
+# define BOARD_VERSION				3.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRTHERMALV31
+# define BOARD_TYPE					1831
+# define BOARD_REVISION				0
+# define BOARD_VERSION				3.1
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRTHERMALV32
+# define BOARD_TYPE					1832
+# define BOARD_REVISION				0
+# define BOARD_VERSION				3.2
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRCOREV10
+# define BOARD_TYPE					1910
+# define BOARD_REVISION				0
+# define BOARD_VERSION				1.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
+#ifdef BOARD_VRMAPPERV10
+# define BOARD_TYPE					2010
+# define BOARD_REVISION				0
+# define BOARD_VERSION				1.0
+# define BOARD_FLASH_SECTORS		11
+# define BOARD_FLASH_SIZE			(1024 * 1024)
+
+# define OSC_FREQ					8
+
+# define BOARD_PIN_LED_ACTIVITY		GPIO13
+# define BOARD_PIN_LED_BOOTLOADER	GPIO14
+# define BOARD_PORT_LEDS			GPIOD
+# define BOARD_CLOCK_LEDS			RCC_AHB1ENR_IOPDEN
+# define BOARD_LED_ON				gpio_clear
+# define BOARD_LED_OFF				gpio_set
+
+# define BOARD_FORCE_BL_PIN				GPIO10
+# define BOARD_FORCE_BL_PORT			GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL			GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE			0
+
+# define BOARD_PRESENCE_PIN				GPIO9
+# define BOARD_PRESENCE_PORT			GPIOA
+# define BOARD_PRESENCE_CLOCK_REGISTER	RCC_AHB1ENR
+# define BOARD_PRESENCE_CLOCK_BIT		RCC_AHB1ENR_IOPAEN
+# define BOARD_PRESENCE_PULL			GPIO_PUPD_PULLDOWN
+#endif
+
 #define APP_SIZE_MAX			(BOARD_FLASH_SIZE - BOOTLOADER_RESERVATION_SIZE)
 
 /* context passed to cinit */
@@ -488,7 +788,43 @@ static struct {
 /* board definition */
 struct boardinfo board_info = {
 	.board_type	= BOARD_TYPE,
-#if defined(BOARD_BRAINV40) || defined(BOARD_BRAINV45) || defined(BOARD_BRAINV50) || defined(BOARD_BRAINV51) || defined(BOARD_BRAINV52) || defined(BOARD_UBRAINV51) || defined(BOARD_UBRAINV52) || defined(BOARD_HEROV10) || defined(BOARD_UGIMBALV11) || defined(BOARD_GIMBALV20)
+#if defined(BOARD_VRBRAINV40)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRBRAINV45)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRBRAINV50)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRBRAINV51)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRBRAINV52)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRUBRAINV51)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRUBRAINV52)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRHEROV10)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRUGIMBALV11)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRGIMBALV20)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRFLIGHTSTOPV10)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRSPARKV11)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRSPARKV21)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRTHERMALV10)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRTHERMALV20)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRTHERMALV30)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRTHERMALV31)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRCOREV10)
+	.board_rev	= BOARD_REVISION,
+#elif defined(BOARD_VRMAPPERV10)
 	.board_rev	= BOARD_REVISION,
 #else
 	.board_rev	= 0,
@@ -758,7 +1094,7 @@ main(void)
 	/* Enable the FPU before we hit any FP instructions */
 	SCB_CPACR |= ((3UL << 10*2) | (3UL << 11*2)); /* set CP10 Full Access and set CP11 Full Access */
 
-#if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
+#if defined(BOARD_VRBRAINV40) || defined(BOARD_VRBRAINV45)
 	if(!board_test_force_pin() && !(board_get_rtc_signature() == BOOT_RTC_SIGNATURE)) {
 		jump_to_app();
 	}
@@ -782,7 +1118,7 @@ main(void)
 		 */
 		timeout = 0;
 
-#if  defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
+#if defined(BOARD_VRBRAINV40) || defined(BOARD_VRBRAINV45)
 		// force an erase of the first sector because version 4.x
 		// of the board is not able to reset USB after first boot.
 		// This will force the bootloader to stay until a program has been flashed.
@@ -805,7 +1141,7 @@ main(void)
 	 * If the force-bootloader pins are tied, we will stay here until they are removed and
 	 * we then time out.
 	 */
-#if defined(BOARD_BRAINV45) || defined(BOARD_BRAINV40)
+#if defined(BOARD_VRBRAINV40) || defined(BOARD_VRBRAINV45)
 	if (gpio_get(BOARD_PRESENCE_PORT, BOARD_PRESENCE_PIN) != 0  && board_test_force_pin()) {
 
 		/* don't try booting before we set up the bootloader */
