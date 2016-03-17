@@ -34,7 +34,7 @@ export COMMON_SRCS	 = bl.c
 # Bootloaders to build
 #
 TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl \
-        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrbrainv52_bl \
+        		   vrbrainv40_bl vrbrainv45_bl vrbrainv50_bl vrbrainv51_bl vrbrainv52_bl vrbrainv53_bl \
         		   vrubrainv51_bl vrubrainv52_bl \
         		   vrherov10_bl \
         		   vrugimbalv11_bl \
@@ -145,3 +145,6 @@ vrcorev10_bl: $(MAKEFILE_LIST)
 
 vrmapperv10_bl: $(MAKEFILE_LIST)
 	make -f Makefile_VRX.f4 TARGET=mapperv10 INTERFACE=USB BOARD=VRMAPPERV10 USBDEVICESTRING="\\\"VR BL MAPPER v1.0\\\"" USBPRODUCTID="0x2010"
+
+vrbrainv53_bl: $(MAKEFILE_LIST)
+	make -f Makefile_VRX.f4 TARGET=brainv53 INTERFACE=USB BOARD=VRBRAINV53 USBDEVICESTRING="\\\"VR BL BRAIN v5.3\\\"" USBPRODUCTID="0x1153"

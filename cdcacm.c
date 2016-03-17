@@ -39,6 +39,8 @@ static const char *usb_strings[] = {
 	"Laser Navigation",
 #elif defined(BOARD_VRBRAINV52)
 	"Laser Navigation",
+#elif defined(BOARD_VRBRAINV53)
+	"Laser Navigation",
 #elif defined(BOARD_VRUBRAINV51)
 	"Laser Navigation",
 #elif defined(BOARD_VRUBRAINV52)
@@ -93,6 +95,8 @@ static const struct usb_device_descriptor dev = {
 #elif defined(BOARD_VRBRAINV51)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
 #elif defined(BOARD_VRBRAINV52)
+	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
+#elif defined(BOARD_VRBRAINV53)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
 #elif defined(BOARD_VRUBRAINV51)
 	.idVendor = 0x27AC,					/**< Vendor ID (VID) */
